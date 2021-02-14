@@ -25,7 +25,7 @@ module.exports = {
     }),
     // create html pages
     new HtmlWebpackPlugin({
-      title: 'three.js hello cube',
+      title: 'Exploder Testing',
       filename: 'index.html',
       chunks: ['index']
     })
@@ -43,8 +43,12 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
-        test: /\.(glsl)$/i,
-        use: 'raw-loader'
+        test: /\.(glsl|vs|fs|vert|frag)$/,
+        exclude: /node_modules/,
+        use: [
+          'raw-loader',
+          'glslify-loader'
+        ]
       }
     ]
   },
