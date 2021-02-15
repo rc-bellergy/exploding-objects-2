@@ -5,8 +5,9 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import { BufferGeometryUtils } from 'three/examples/jsm/utils/BufferGeometryUtils'
-import fragment from './shader/fragment.glsl'
-import vertex from './shader/vertexIco.glsl'
+import { createBackground } from './lib/background/index.js'
+import fragment from './models/shader/fragment.glsl'
+import vertex from './models/shader/vertexIco.glsl'
 
 function getRandomAxis () {
   return new THREE.Vector3(
@@ -52,6 +53,8 @@ export class Exploder {
     })
     if (this.backgroundColor === 'transparent') {
       this.renderer.setClearColor(0x000000, 0)
+    } else if (this.backgroundColor === 'noise') {
+      this.scene.add(createBackground({ grainScale: 0.0015 }))
     } else {
       this.backgroundColor = parseInt('0x' + this.backgroundColor, 16)
       this.renderer.setClearColor(this.backgroundColor, 1)

@@ -15,7 +15,7 @@ const elementId = 'container' // the Exploder object will be rendered to this HT
 const options = { // config the Exploder object options
   surface: '999999',
   inside: 'aa0000',
-  background: '333333',
+  background: 'noise', // 'transparent', 'noise', '{hex color}'
   inverted: false, // inverted the surface and inside colours
   onLoad: () => {
     // start the demo animation when loaded
