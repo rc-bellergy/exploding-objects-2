@@ -1,12 +1,22 @@
+/* Example of adding "Exploder" object */
+
 import { Exploder } from './exploder.js'
+import { WEBGL } from 'three/examples/jsm/WebGL.js'
 import Stats from 'three/examples/jsm/libs/stats.module.js'
 
-const elementId = 'container'
-const inverted = false // inverted the surface and inside colours
-const options = {
+// Check browser support WEBGL
+if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
+  console.error('The File APIs are not fully supported in this browser.')
+} else if (!WEBGL.isWebGLAvailable()) {
+  console.error('WebGL is not supported in this browser.')
+}
+
+const elementId = 'container' // the Exploder object will be rendered to this HTML element
+const options = { // config the Exploder object options
   surface: '999999',
   inside: 'aa0000',
   background: '333333',
+  inverted: false, // inverted the surface and inside colours
   onLoad: () => {
     // start the demo animation when loaded
     let step = 1
@@ -27,13 +37,12 @@ const options = {
       exploder.scene.rotation.z = rot
 
       stats.end() // update stats
-
       requestAnimationFrame(animate)
     }
     requestAnimationFrame(animate)
   }
 }
-const exploder = new Exploder(elementId, inverted, options)
+const exploder = new Exploder(elementId, options)
 console.log(exploder)
 
 // add the stats UI

@@ -31,14 +31,14 @@ function getCentroid (geometry) {
 }
 
 export class Exploder {
-  constructor(elementId, inverted, options) {
+  constructor(elementId, options) {
     this.scene = new THREE.Scene()
 
-    this.inverted = inverted || false
     this.container = document.getElementById(elementId)
     this.container = document.body
 
     // set options
+    this.inverted = options.inverted
     this.onLoad = options.onLoad
     this.onClick = options.onClick
     this.backgroundColor = options.background
