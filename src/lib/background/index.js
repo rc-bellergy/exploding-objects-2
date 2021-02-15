@@ -4,8 +4,8 @@ import frag from './shader.frag'
 
 export function createBackground (opt) {
   opt = opt || {}
-  var geometry = opt.geometry || new THREE.PlaneGeometry(2, 2, 1)
-  var material = new THREE.RawShaderMaterial({
+  const geometry = opt.geometry || new THREE.PlaneGeometry(2, 2, 1)
+  const material = new THREE.RawShaderMaterial({
     vertexShader: vert,
     fragmentShader: frag,
     side: THREE.DoubleSide,
@@ -23,7 +23,7 @@ export function createBackground (opt) {
     },
     depthTest: false
   })
-  var mesh = new THREE.Mesh(geometry, material)
+  const mesh = new THREE.Mesh(geometry, material)
   mesh.frustumCulled = false
   mesh.style = style
   if (opt) mesh.style(opt)
@@ -32,7 +32,7 @@ export function createBackground (opt) {
   function style (opt) {
     opt = opt || {}
     if (Array.isArray(opt.colors)) {
-      var colors = opt.colors.map(function (c) {
+      const colors = opt.colors.map(function (c) {
         if (typeof c === 'string' || typeof c === 'number') {
           return new THREE.Color(c)
         }
@@ -51,18 +51,18 @@ export function createBackground (opt) {
       material.uniforms.grainTime.value = opt.grainTime
     }
     if (opt.smooth) {
-      var smooth = fromArray(opt.smooth, THREE.Vector2)
+      const smooth = fromArray(opt.smooth, THREE.Vector2)
       material.uniforms.smooth.value.copy(smooth)
     }
     if (opt.offset) {
-      var offset = fromArray(opt.offset, THREE.Vector2)
+      const offset = fromArray(opt.offset, THREE.Vector2)
       material.uniforms.offset.value.copy(offset)
     }
     if (typeof opt.noiseAlpha === 'number') {
       material.uniforms.noiseAlpha.value = opt.noiseAlpha
     }
     if (typeof opt.scale !== 'undefined') {
-      var scale = opt.scale
+      let scale = opt.scale
       if (typeof scale === 'number') {
         scale = [scale, scale]
       }
