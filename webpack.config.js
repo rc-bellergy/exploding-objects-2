@@ -27,7 +27,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Exploder Testing',
       filename: 'index.html',
-      chunks: ['index']
+      chunks: ['index'],
+      template: './src/template.ejs'
     })
   ],
   module: {

@@ -31,18 +31,16 @@ function getCentroid (geometry) {
 }
 
 export class Exploder {
-  constructor(inverted, options) {
+  constructor(elementId, inverted, options) {
     this.scene = new THREE.Scene()
 
     this.inverted = inverted || false
-    // this.container = document.getElementById(selector)
+    this.container = document.getElementById(elementId)
     this.container = document.body
 
+    // set options
     this.onLoad = options.onLoad
-    // this.onClick = options.onClick
-
-    // this.surfaceColor = options.surface
-    // this.insideColor = options.inside
+    this.onClick = options.onClick
     this.backgroundColor = options.background
     this.surfaceColor = new THREE.Color(parseInt('0x' + options.surface))
     this.insideColor = new THREE.Color(parseInt('0x' + options.inside))
@@ -96,10 +94,6 @@ export class Exploder {
 
   load () {
     const that = this
-    const i = 0
-    let parent
-    const pos = new THREE.Vector3(0, 0, 0)
-    const poses = []
     this.voron = []
 
     this.loader.load(
@@ -254,7 +248,6 @@ export class Exploder {
   }
 
   setupcubeTexture () {
-    const that = this
     const path = 'models/env/sky/'
     const format = '.jpg'
     const urls1 = [
@@ -308,7 +301,6 @@ export class Exploder {
   }
 
   settings () {
-    const that = this
     this.settings = {
       progress: 0
     }
