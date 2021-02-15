@@ -2,7 +2,9 @@
 I forked the ExplodingObjects from `akella`.
 https://github.com/akella/ExplodingObjects
 
-However, it missed the build file. I can't modify the source code. So, I try to rebuild it using the webpack.
+However, it missed the build file. I can't modify the source code. So, I created the builder using the webpack.
+
+![](demo.gif)
 
 ## Install
     npm install
@@ -12,3 +14,4 @@ However, it missed the build file. I can't modify the source code. So, I try to 
 
 ## Build
     npm run build
+
