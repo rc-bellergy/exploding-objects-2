@@ -6,18 +6,20 @@ const options = {
   background: '333333',
   onLoad: () => {
     console.log('loaded')
-    let step = 0.005
+    let step = 1
+    let rot = 0
     const animate = () => {
       if (exploder.settings.progress > 2) {
-        step = -0.005
+        step = -1
       } else {
         if (exploder.settings.progress < 0) {
-          step = 0.005
+          step = 1
         }
       }
-      exploder.settings.progress += step
-      exploder.scene.rotation.y = exploder.settings.progress
-      exploder.scene.rotation.z = exploder.settings.progress
+      rot += 0.01
+      exploder.settings.progress += step * 0.005
+      exploder.scene.rotation.y = rot
+      exploder.scene.rotation.z = rot
       requestAnimationFrame(animate)
     }
     requestAnimationFrame(animate)
