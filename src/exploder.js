@@ -5,7 +5,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import { BufferGeometryUtils } from 'three/examples/jsm/utils/BufferGeometryUtils'
-import { createBackground } from './lib/background/index.js'
+import { createBackground } from 'three-vignette-background-esm/dist/noise-background'
 import fragment from './models/shader/fragment.glsl'
 import vertex from './models/shader/vertexIco.glsl'
 

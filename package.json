@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "dat.gui": "^0.7.7",
-    "three": "^0.124.0"
+    "three": "^0.124.0",
+    "three-vignette-background-esm": "^1.0.0"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
